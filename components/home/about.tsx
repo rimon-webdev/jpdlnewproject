@@ -2,7 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Building2, Users, ShieldCheck, Clock, Star } from "lucide-react";
+import { Building2, Users, ShieldCheck, Clock } from "lucide-react";
+import { ReactNode } from "react";
+
+// Type for Feature props
+type FeatureProps = {
+  icon: ReactNode;
+  title: string;
+  desc: string;
+};
 
 export default function AboutSection() {
   return (
@@ -17,6 +25,7 @@ export default function AboutSection() {
                 src="/images/about/real-estate-left.jpg"
                 alt="Real estate industry image"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
                 priority
               />
@@ -73,7 +82,8 @@ export default function AboutSection() {
   );
 }
 
-function Feature({ icon, title, desc }) {
+// Typed Feature component
+function Feature({ icon, title, desc }: FeatureProps) {
   return (
     <div className="flex gap-3 items-start">
       <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center">
